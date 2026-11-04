@@ -1,0 +1,4 @@
+baseURL = 'https://hojingO.github.io/'
+locale = 'ko-kr'
+title = '잡다한 공구상자'
+theme = "PaperMod"
