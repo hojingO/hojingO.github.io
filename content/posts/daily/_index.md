@@ -1,4 +1,4 @@
 +++
 title = '일상'
-description = '사는 이야기'
+description = '짐승같이 살기'
 +++
