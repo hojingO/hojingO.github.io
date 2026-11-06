@@ -1,0 +1,18 @@
+{{- $dirs := partial "dir_list.html" . }}
+{{- if $dirs }}
+<aside class="dir-index" aria-label="디렉토리 인덱스">
+  <div class="dir-index-title">INDEX</div>
+  <ul>
+    {{- range $dirs }}
+    {{- $s := .section }}
+    {{- $active := or (eq $.CurrentSection $s) ($.IsDescendant $s) }}
+    <li>
+      <a href="{{ $s.RelPermalink }}"{{ if $active }} class="active" aria-current="page"{{ end }}>
+        <span class="dir-name">{{ $s.Title }}</span>
+        <span class="dir-count">{{ .count }}</span>
+      </a>
+    </li>
+    {{- end }}
+  </ul>
+</aside>
+{{- end }}

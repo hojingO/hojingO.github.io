@@ -1,4 +1,48 @@
 baseURL = 'https://hojingO.github.io/'
 locale = 'ko-kr'
-title = '기미낑'
+title = '쵸진1'
 theme = "PaperMod"
+
+[params]
+  defaultTheme = "auto"        # 다크/라이트 자동 (light, dark도 가능)
+  ShowReadingTime = true       # 읽는 시간 표시
+  ShowToc = true               # 글 목차
+  ShowCodeCopyButtons = true   # 코드 블록 복사 버튼
+  ShowPostNavLinks = true      # 이전/다음 글 링크
+  ShowBreadCrumbs = true
+
+  # 홈 화면 상단 소개
+  [params.homeInfoParams]
+    Title = " 특이점은 온다."
+    Content = "폐광 발견"
+
+  # 소셜 아이콘
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/hojingO"
+
+# 상단 메뉴
+[[menu.main]]
+  name = "Posts"
+  url = "/posts/"
+  weight = 1
+[[menu.main]]
+  name = "Tags"
+  url = "/tags/"
+  weight = 2
+[[menu.main]]
+  name = "Archive"
+  url = "/archives/"
+  weight = 3
+[[menu.main]]
+  name = "Search"
+  url = "/search/"
+  weight = 4
+
+# 검색 기능용
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[markup.goldmark.renderer]
+  hardWraps = true
+  unsafe = true     # md 안의 HTML 그대로 렌더링

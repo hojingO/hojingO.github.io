@@ -1,0 +1,12 @@
+{{- /* posts 아래 디렉토리(섹션)를 가장 최근 글 날짜 순으로 정렬해 반환 */ -}}
+{{- $dirs := slice }}
+{{- with site.GetPage "/posts" }}
+  {{- range $s := .Sections }}
+    {{- $pages := $s.RegularPagesRecursive.ByDate.Reverse }}
+    {{- with $pages }}
+      {{- $latest := index . 0 }}
+      {{- $dirs = $dirs | append (dict "section" $s "latest" $latest "date" $latest.Date "count" (len .)) }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{- return (sort $dirs "date" "desc") }}

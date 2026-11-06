@@ -1,0 +1,27 @@
+{{- define "main" }}
+{{- partial "home_info.html" . }}
+
+{{- range partial "dir_list.html" . }}
+{{- $s := .section }}
+<article class="post-entry dir-entry">
+  <header class="entry-header">
+    <h2>
+      <svg class="dir-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" height="22" aria-hidden="true">
+        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+      </svg>
+      {{ $s.Title }}
+      <span class="dir-count">{{ .count }}개</span>
+    </h2>
+  </header>
+  <div class="entry-content">
+    {{- with $s.Description }}<p>{{ . }}</p>{{ end }}
+    <p class="dir-latest">최근 글 · {{ .latest.Title }}</p>
+  </div>
+  <footer class="entry-footer">
+    {{ .latest.Date | time.Format ":date_long" }}
+  </footer>
+  <a class="entry-link" aria-label="{{ $s.Title }} 디렉토리" href="{{ $s.Permalink }}"></a>
+</article>
+{{- end }}
+{{- end }}
