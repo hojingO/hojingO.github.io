@@ -1,0 +1,5 @@
+# Hugo 빌드 결과물 (GitHub Actions가 배포 시 새로 빌드함)
+/public/
+/resources/_gen/
+.hugo_build.lock
+.DS_Store
